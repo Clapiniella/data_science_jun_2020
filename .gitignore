@@ -1,4 +1,27 @@
 *.pub
 .DS_Store
 passwords
+
+/.idea/
+*.log
+.cache
+.Python
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
+*.py[cod]
+*$py.class
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
