@@ -1,0 +1,4 @@
+*.pub
+.DS_Store
+passwords
+__pycache__/
