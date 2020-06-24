@@ -1,6 +1,4 @@
-Attemp 2:
-
-1. Python_VI_Precurse
+1. Python_VII_Precurse
     - End recursion
     - try/except
 2. Katas
