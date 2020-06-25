@@ -1,12 +1,6 @@
-PW2D3 attempt 2:
-
-1. Python_VII_Precurse
-    - End recursion
-    - try/except
-    - pass
-    - TODO
-2. Katas
-3. Exercises_1-8_v2
+1. Python_X_Precurse
+    - Classes
+2. https://www.practicepython.org/
 
 ---------
 

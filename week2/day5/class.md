@@ -1,12 +1,11 @@
-PW2D3 attempt 2:
+1. Python_VIII_Precurse
+    - Dict/List comprehension
+    - dict(zip()) 
+    - Lambda
+    - Default values in Functions
+2. Exercises_1-8_v4
+3. https://www.practicepython.org/
 
-1. Python_VII_Precurse
-    - End recursion
-    - try/except
-    - pass
-    - TODO
-2. Katas
-3. Exercises_1-8_v2
 
 ---------
 
