@@ -2,7 +2,7 @@
 
 ----------------
 
-## name: data_science_jun_2020
+### Foldername: data_science_jun_2020
 
 ---------
 
