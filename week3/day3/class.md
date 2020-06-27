@@ -1,8 +1,3 @@
-# Bootcamp - Data Science 2020 - The Bridge
-
-----------------
-
-## name: data_science_jun_2020
 
 ---------
 
