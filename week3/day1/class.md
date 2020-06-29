@@ -1,6 +1,8 @@
 1. Python_IX_Precurse
     - map/filter, reduce (itertools)
 2. https://www.practicepython.org/
+3. exercises/dictionary_exercise-9
+4. exercises/flota/exercises_hundir_flota
 
 ---------
 
