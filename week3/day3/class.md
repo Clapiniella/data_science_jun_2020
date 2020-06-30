@@ -1,3 +1,7 @@
+1. Ficheros
+2. Estadística
+3. A_Quick_Guide_On_Descriptive_Statistics_Using_Pandas
+4. exercises/Exercises_1-8_v7
 
 ---------
 
