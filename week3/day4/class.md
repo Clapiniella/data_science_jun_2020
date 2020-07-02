@@ -1,3 +1,7 @@
+1. Probability
+2. Montyhall_problem
+3. Distributions
+4. exercises/
 
 ---------
 
