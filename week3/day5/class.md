@@ -1,3 +1,6 @@
+1. Lineal_Algebra_Calculus_Python
+2. exercises/algebra/.. 
+3. exercises/numpy_class_module_example
 
 ---------
 
