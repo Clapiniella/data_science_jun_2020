@@ -1,8 +1,14 @@
 # Bootcamp - Data Science 2020 - The Bridge
 
-----------------
+---------
 
-### Foldername: data_science_jun_2020
+### **Foldername**: data_science_jun_2020
+
+***Repository link:*** https://github.com/Gabvaztor/data_science_jun_2020
+
+*To git clone by https:*
+
+"git clone https://github.com/Gabvaztor/data_science_jun_2020.git"
 
 ---------
 
