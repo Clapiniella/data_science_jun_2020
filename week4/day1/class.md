@@ -7,7 +7,7 @@
 
 **Work-out - Alumn:**
 
-4. Mandatory read:
+5. Mandatory read:
 - https://learning.oreilly.com/library/view/python-for-data/9781491957653/ch03.html
 
 - https://learning.oreilly.com/library/view/python-for-data/9781491957653/ch04.html
@@ -16,8 +16,8 @@
   To cap *"Ratio"*
   Link: https://learning.oreilly.com/library/view/hands-on-exploratory-data/9781789537253/0957090f-fa4d-4145-95dd-6d3782e5c04d.xhtml 
 
-5. numpy/
-6. pandas/
+6. numpy/
+7. pandas/
 
 ---------
 
