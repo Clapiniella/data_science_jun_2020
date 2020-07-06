@@ -14,7 +14,8 @@
 
 - From cap *"Exploratory Data Analysis Fundamentals"*
   To cap *"Ratio"*
-  Link: https://learning.oreilly.com/library/view/hands-on-exploratory-data/9781789537253/0957090f-fa4d-4145-95dd-6d3782e5c04d.xhtml 
+
+  **Link**: https://learning.oreilly.com/library/view/hands-on-exploratory-data/9781789537253/0957090f-fa4d-4145-95dd-6d3782e5c04d.xhtml 
 
 6. numpy/
 7. pandas/
