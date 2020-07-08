@@ -13,10 +13,9 @@
 
 *Recommendation: Use Pandas cheatsheet*
 
-3. theory/pandas/
-4. theory/distributions_matplotlib/
-5. exercises/pandas/
-6. exercises/strings_json/
+3. theory/2_matplotlib/
+4. exercises/pandas/
+5. exercises/strings_json/
 
 ---------
 
