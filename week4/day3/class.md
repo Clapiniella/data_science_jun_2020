@@ -15,7 +15,7 @@
 4. theory/distributions_matplotlib/
 5. exercises/pandas/
 
-*BONUS*: 
+*BONUS*:
 
 6. exercises/complete_advanced/
 
