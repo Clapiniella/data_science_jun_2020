@@ -4,7 +4,7 @@
 
 **Work-in:**
 
-1. python/decorators
+1. python/argparse & python/os_path
 2. exercises/pandas
 
 **Work-out:**
