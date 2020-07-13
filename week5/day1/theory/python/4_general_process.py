@@ -8,7 +8,7 @@ def __get_root_project(number_of_descent):
     #__file = os.getcwd()
     for _ in range(number_of_descent):
         __file = os.path.dirname(__file)
-        sys.path.append(__file)
+    sys.path.append(__file)
     sys.path = list(set(sys.path))
 
 # Step 1: set root folder '5 up'
