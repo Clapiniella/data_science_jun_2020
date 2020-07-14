@@ -6,7 +6,7 @@ Send, by email, the next exercises finished:
 
 Before *19/07/2020 23:59*.
 
-**IMPORTANT NOTE**: Do not upload those files to your github before that date.
+**IMPORTANT NOTE**: Do not upload those files to your github after that date.
 
 ---------------------
 
