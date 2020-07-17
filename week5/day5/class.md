@@ -9,6 +9,7 @@
 **Work-out:**
 
 2. other exercises
+3. exercises/pandas/titanic/
 
 ---------
 
