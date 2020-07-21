@@ -4,7 +4,7 @@
 
 **Work-in:**
 
-1. git branches*
+1. git branches & forks
 2. pandas exercises
 
 ---------
