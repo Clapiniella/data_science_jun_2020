@@ -1,0 +1,6 @@
+{
+    "server_running": true,
+    "port": 5072,
+    "debug": true,
+    "host": "localhost"
+}
