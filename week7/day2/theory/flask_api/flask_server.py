@@ -1,8 +1,39 @@
 import os, sys
 from flask import Flask, render_template, redirect, request, jsonify 
-import time
-import random
 import json
+
+html = """<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de prueba</title>
+</head>
+<body>
+<div id="main" class="full-width">
+    <h1>El título de la página</h1>
+    <p>Este es el primer párrafo</p>
+    <p>Este es el segundo párrafo</p>
+    <div id="innerDiv">
+        <div class="links">
+            <a href="https://pagina1.xyz/">Enlace 1</a>
+            <a href="https://pagina2.xyz/">Enlace 2</a>
+        </div>
+        <div class="right">
+            <div class="links">
+                <a href="https://pagina3.xyz/">Enlace 3</a>
+                <a href="https://pagina4.xyz/">Enlace 4</a>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <!-- El footer -->
+        <p>Este párrafo está en el footer</p>
+        <div class="links footer-links">
+            <a href="https://pagina5.xyz/">Enlace 5</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>"""
 
 # ----------------------
 # $$$$$$$ FLASK $$$$$$$$
@@ -10,12 +41,12 @@ import json
 
 app = Flask(__name__)  # init
 
-@app.route("/")
+@app.route("/")  # Default path
 def default():
     # Redirect
     #return redirect("http://aiconscience.ddns.net", code=302)
     #return str(request.args)
-    return "I am the default function"
+    return html
 
 # ----------------------
 # $$$$$$$ FLASK GET $$$$$$$$
@@ -26,12 +57,14 @@ def get():
     return '''<h1>Distant Reading Archive</h1>
 <p>A prototype API for distant reading of science fiction novels.</p>'''
 
+@app.route('/give_me_id', methods=['GET'])
+def give_id():
+    x = request.args['id']
+    return request.args
+
 # A route to return all of the available entries in our catalog.
 @app.route('/api/test/', methods=['GET'])
 def api_all():
-    """
-    127.0.0.1:6060/api/test/?id=0
-    """
     restaurant_id = None
     if 'id' in request.args:
         restaurant_id = int(request.args['id'])
@@ -48,7 +81,7 @@ def api_all():
 # ----------------------
 
 def main():
-    
+
     print("STARTING PROCESS")
     print(os.path.dirname(__file__))
     
@@ -72,4 +105,3 @@ def main():
             
 if __name__ == "__main__":
     main()
-    
