@@ -1,0 +1,5 @@
+{ 
+    "USERS" : "https://www.codewars.com/api/v1/users/",
+    "COMPLETE" : "/code-challenges/completed",
+    "KATA" : "https://www.codewars.com/api/v1/code-challenges/"
+}
