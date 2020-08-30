@@ -41,7 +41,7 @@ html = """<html lang="es">
 
 app = Flask(__name__)  # init
 
-@app.route("/html")  # Default path
+@app.route("/")  # Default path
 def default():
     # Redirect
     #return redirect("http://aiconscience.ddns.net", code=302)
