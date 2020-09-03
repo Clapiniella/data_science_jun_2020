@@ -4,13 +4,17 @@
 
 **Work-in:**
 
-1. test
+1. Group presentations
+2. Knn presentation
+3. knn.ipynb
 
 ---------
 
 **Work-out:**
 
-2. projects
+4. 1.knn_exercise
+5. 2.log_regression_exercise
+6. 3.regression_classification_exercise
 
 ---------
 
