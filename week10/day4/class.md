@@ -4,15 +4,15 @@
 
 **Work-in:**
 
-1. Concepts v3 presentation
-2. normalization_logistic_regression_digits
-3. exercises
+1. Unsupervised Learning presentation
+2. unsupervised_learning.ipynb
+3. O'Reilly
 
 ---------
 
 **Work-out:**
 
-4. Other exercises
+3. Other exercises
 
 ---------
 
