@@ -12,7 +12,7 @@
 
 **Work-out:**
 
-3. Other exercises
+4. Other exercises
 
 ---------
 
