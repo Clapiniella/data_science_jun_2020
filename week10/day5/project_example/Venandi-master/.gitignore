@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+venv/
+.ipynb_checkpoints
+__pycache__/
+.env
+dump
+help.txt
+dask-worker-space
