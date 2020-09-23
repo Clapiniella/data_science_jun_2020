@@ -16,6 +16,7 @@ TRUE < FALSE
 linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 facebook <- c(17, 7, 5, 16, 8, 13, 14)
 names(linkedin) <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+names(facebook) <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 
 # Dias en los que eres mas popular
 linkedin[linkedin > 15]
@@ -48,6 +49,7 @@ ifelse(v %% 2 == 1,"odd","even")
 ## IF/ELSE
 
 ifi <- 42
+
 if (ifi < 0) {
   print("Negative number")
 } else if (ifi > 0 & ifi < 50) {

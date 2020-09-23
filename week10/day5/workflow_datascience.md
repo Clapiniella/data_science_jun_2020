@@ -11,4 +11,4 @@
     3.6. Añadir columnas (mediana, media, varianza, covarianza...) / generar rangos (pd.cut)
     3.7. (...)
     3.8. Repetir proceso hasta diferentes versiones.
-4. 
+4. (...)

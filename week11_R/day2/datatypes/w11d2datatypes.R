@@ -5,7 +5,7 @@
 # ?(funcion)
 # help(funcion)
 
-?ls()
+ls()
 
 ##############
 # VARIABLES  #
@@ -15,12 +15,13 @@
 a <- 10 # el mas utilizado
 b = TRUE
 "hello" -> c
+
 d <- 2.5
 e <- 5L
 
 ## que tipo de variable es?
   
-class(a)
+class(c)
 
 is.logical(b)
 
@@ -68,9 +69,10 @@ mean(puntuacion)
 
 ## SUBCONJUNTO
 
-## seleccion basada en posiciOn
+## seleccion basada en posicion
 # seleccionar la tercera pelIcula
 nombre_peliculas[3]
+nombre_peliculas
 
 # seleccionar la primera y la última pelicula
 nombre_peliculas[c(1,4)]
@@ -96,21 +98,27 @@ puntuacion_7
 # mostrar puntuaciones bajas
 puntuacion[puntuacion_7]
 
+# tambien
+puntuacion[puntuacion < 7]
+
 # mostrar nombres de peliculas con puntuaciones bajas
 nombre_peliculas[puntuacion_7]
 
 ## ELIMINAR DATOS NULOS
 
 # de un vector
-nanes <- c(1,2,NA,4,NA)
+nanes <- c(1, 2,NA,4,NA)
+
 bad <- is.na(nanes)
+bad
 nanes[!bad]
 
 otro_nanes <- c("a","b", NA, "p",NA)
 
 # de mas de uno
-good <- complete.cases(nanes,otro_nanes) # needs to have same lenght
+good <- complete.cases(nanes, otro_nanes) # misma longitud
 good
+
 nanes[good]
 otro_nanes[good]
 
@@ -128,7 +136,7 @@ as.character(ahora_vector)
 #############
 
 # crear vector de ventas
-tallas <- c('m', 'g', 'S', 'S','m', 'M')
+tallas <- c('m', 'g', 'P', 'P','m', 'M')
 
 # intentar graficar
 # error, son caracteres 
@@ -150,8 +158,8 @@ levels(tallas_factor)
 
 # creando factor recodificado
 tallas_recodificado <- factor(tallas,
-                              levels = c("g", "m", "M", "S"),
-                              labels = c("G", "M", "M", "S"))
+                              levels = c("g", "m", "M", "P"),
+                              labels = c("G", "M", "M", "P"))
 
 
 
@@ -163,12 +171,12 @@ plot(tallas_recodificado)
 # ordenando niveles 
 tallas_ordenado <- factor(tallas,
                           ordered = TRUE,
-                          levels = c("S", "m", "M", "g"),
-                          labels = c("S", "M", "M", "G"))
+                          levels = c("P", "m", "M", "g"),
+                          labels = c("P", "M", "M", "G"))
 
 
 # viendo el orden en los niveles
-tallas_ordenado
+summary(tallas_ordenado)
 
 
 # graficando el factor ordenado
@@ -230,19 +238,19 @@ summary(peliculas)
 ## OPERACIONES ARITMETICAS CON MATRICES
 
 # resta 5 a la matriz
-peliculas -5
+peliculas - 5
 
 # sumar matriz consigo misma
 peliculas + peliculas
 
-# crear la matriz matriz_4
+# crear la matriz matriz_18
 matriz_18 <- matrix(1:18, nrow = 9, ncol = 3)
 
 # añadir nombres a la matriz
-dimnames(matriz_18) <- list(c("a", "b"), c("c", "d"))
+dimnames(matriz_18) <- list(c("c", "d", "e", "f", "g", "h", "i", "j", "k"), c("a", "b", "c"))
 
 
-# multiplicar la matriz por matriz_4
+# multiplicar la matriz por matriz_18
 peliculas * matriz_18
 
 
@@ -268,7 +276,7 @@ peliculas["2010",]
 
 
 # seleccionar una columna
-peliculas[, "fox"]
+peliculas[,"fox"]
 peliculas[,2]
 
 
@@ -282,13 +290,13 @@ ventas_worlwide <- matrix(ventas, nrow = 9, byrow = TRUE,
 
 ventas_worlwide
 # calcular el numero de ventas en US y fuera
-worldwide_vector <- rowSums(ventas_worlwide)
+worldwide_vector <- colSums(ventas_worlwide)
 
-
+# concatenando dos matrices y un vector
 big_matrix <- cbind(ventas_worlwide, peliculas, ventas[1:9])
 
-#data.frame(big_matrix)
-#data.matrix(big_matrix)
+data.frame(big_matrix)
+data.matrix(big_matrix)
 
 ###############
 # DATAFRAMES  #
@@ -303,26 +311,27 @@ peliculas_df <- data.frame(nombre_peliculas,
                            puntuacion, 
                            posterior_2005)
 
-# mostrar los dos primeros valores del dataframe
+# mostrar los dos primeros filas del dataframe
 head(peliculas_df, 2)
 
 # cambiar nombre de dataframe
 names(peliculas_df) <- c('NOMBRE','PUNTUACION','AFTER 2007')
 
-# mostrar dataframe ahora
+# mostrar dataframe ahora (head y tail muestran 6 elementos)
 head(peliculas_df)
+tail(peliculas_df)
 
 ## SUBCONJUNTO 
 
-# hacer un subset si la pelicula es posterior a 2007
+# hacer un subset si la putnuacion de la pelicula es mayor a 7
 subset(peliculas_df, PUNTUACION > 7)
 
 # tambien
-peliculas_df['PUNTUACION' > 7]
+peliculas_df[peliculas_df$PUNTUACION > 7,]
 
 # seleccionar un elemento del dataframe
 peliculas_df[3,2]
-peliculas_df[3, 'PUNTUACION']
+peliculas_df[3,'PUNTUACION']
 
 
 # seleccionar mas de un elemento del dataframe
@@ -333,8 +342,8 @@ peliculas_df[c(3,2), c('PUNTUACION','AFTER 2007')]
 peliculas_df[1,]
 
 # seleccionar una columna del dataframe
-peliculas_df[,3]
-peliculas_df[,'AFTER 2007']
+peliculas_df[,2]
+peliculas_df[,'PUNTUACION']
 peliculas_df$PUNTUACION
 
 ## ORDENAR DATAFRAME
@@ -345,6 +354,7 @@ peliculas_df
 # mostrar el indice de la columna de puntuacion con order
 order(peliculas_df$PUNTUACION)
 
+# esto hace lo mismo que lo de arriba
 # funcion order (menor a mayor)
 orden_m_m <- order(peliculas_df$PUNTUACION,
                    decreasing = FALSE)
@@ -367,18 +377,21 @@ df_ordenado <- peliculas_df[orden_lol,]
 
 ## ELIMINAR DATOS NULOS
 
+# airquality junto con mtcars, y otras, son datasets que 
+# vienen incluidos en paquetes basicos de R,
+# que se importan con la funcion data("el_nombre")
 data("airquality")
 
-airquality[1:6,]
+head(airquality)
 
 good_air <- complete.cases(airquality)
 
-airquality[good_air,][1:6,]
+airquality[good_air,]
+
 
 ###########
 # LISTAS  #
 ###########
-
 
 # utilizamos nombre_peliculas, puntuacion, posterior_2005, warner, disney, fox, peliculas, peliculas_df
 
@@ -386,7 +399,6 @@ airquality[good_air,][1:6,]
 
 # crear lista con un vector y una matriz
 lista_curso <- list(nombre_peliculas, peliculas)
-
 
 # mostrar lista
 lista_curso
@@ -397,6 +409,9 @@ names(lista_curso) <- c('vector', 'matriz')
 
 # mostrar lista 
 lista_curso
+
+# para mostrar la estructura interna del objeto
+str(lista_curso)
 
 ## SELECCIONAR ELEMENTOS DE UNA LISTA
 
@@ -429,24 +444,25 @@ lista_curso
 
 ## OTRAS FUNCIONES DE INTERES PARA LISTAS
 
-li <- list(log = TRUE,
-           ch= "hello",
-           int_vec = sort(rep(seq(8,2,by=-2),times=2)))
+li <- list(clara = TRUE,
+           cristina = "hello",
+           int_vec = sort(rep(seq(8,2,by=-2),times=2))
+           )
 
 is.list(li)
 
-is.list(c(1,3,4))
+is.list(otro_vector)
 
-li2 <- as.list(c(1,2,4))
+li2 <- as.list(otro_vector)
 
 is.list(li2)
 
-#unlist(li)
-
-str(append(li,rev(li)))
+lista_doble <- append(li,rev(li))
 
 str(rev(li))
 
+# convierte la lista a vector
+unlist(li)
 
 
 
