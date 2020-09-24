@@ -1,7 +1,5 @@
 # WEEK 11 - day 3 Read data
 
-library(tidyverse)
-
 #############
 # Read data #
 #############

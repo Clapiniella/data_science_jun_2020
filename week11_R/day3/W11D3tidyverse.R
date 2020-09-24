@@ -1,14 +1,19 @@
 # WEEK 11 - day 3 Tidyverse
 
+# para instalar una paquete que no tengais instalada
+# install.packages("tidyverse")
+
 # http://www.sthda.com/english/wiki/r-built-in-data-sets
 # para ver todos los datasets cargados 
 # en R
-
 data()
+
+#data(mtcars)
+#head(mtcars)
 
 # eliminar variables ya creadas
 
-rm(gapminder)
+rm(mtcars)
 
 ##############
 # Tidyverse  #
@@ -29,20 +34,22 @@ library(tidyverse)
 ## nombre
 
 # instalando paquete con los datos
-#install.packages("gapminder")
+# install.packages("gapminder")
+
+# data(gapminder)
+# este gapminder es el que viene con el paquete `.`
+# que no es lo mismo que el gapminder que viene con
+# el paquete `gapminder`
 
 # cargando paquete con los datos
 library(gapminder)
 
 # cargando datos a entorno
-data("gapminder")
+data(gapminder)
 
+gapminder
 # cargando datos a entorno
-head(gapminder, 5)
-
-# ¿ Qué es un tibble? 
-# Un tipo especial de dataframe
-# https://tibble.tidyverse.org/reference/as_tibble.html
+head(gapminder)
 
 ####################
 # filter con dplyr #
@@ -55,6 +62,7 @@ filter(gapminder, country == 'Mexico')
 # para hacer %>% en RStudio (cntrl + shift + M)
 gapminder %>% 
   filter(country == 'Mexico')
+# coge lo que hay a la izquierda y lo pasa la derecha como primer argumento
 
 # filtrar datos por año
 gapminder %>% 
@@ -62,13 +70,17 @@ gapminder %>%
 
 # filtrar datos por año y pais
 gapminder %>%
-  filter(year==2007, country == "Spain")
+  select(continent, country, year) %>% 
+  filter(continent == "Europe", year==2007, country == "Spain") 
+# select si solo quisieramos mostrar las columnas country y year
 
 # filtrar paises con esperanza de vida 
 # menor o igual a 40 y el año en 2002
 gapminder %>% 
-  filter(lifeExp <=40,
-         year == 2002)
+  filter(lifeExp <= 40, year == 2002)
+
+# ejemplo para añadir or  |
+# filter(starwars, hair_color == "none" | eye_color == "black")
 
 #####################
 # arrange con dplyr #
@@ -78,6 +90,7 @@ gapminder %>%
 gapminder %>%
   filter(year == 2002) %>%
   arrange(desc(gdpPercap))
+# si queremos que sea de forma descendente añadimos arrange(desc())
 
 #######################
 # summarise con dplyr #
@@ -88,18 +101,22 @@ gapminder %>% # el pipe se pone usando Ctrl+Shift+M
   filter(continent == 'Asia',
          year =='2007') %>% 
   summarise(conteo = n())
+# conteo es un nombre que nosotros elegimos para darle a esa variable
+# conteo no es una funcion
 
-# maxima esparanza de vida
+# maxima esperanza de vida
 gapminder %>% 
   summarise(max_lifeExp = max(lifeExp))
+
 
 #####################
 # groupby con dplyr #
 #####################
+# summarise() and summarize() are synonyms.
 
-by_year <- gapminder %>%
-  group_by(year) %>%
-  summarize(medianLifeExp = median(lifeExp),
+gapminder %>%
+  group_by(continent) %>% 
+  summarise(medianLifeExp = median(lifeExp),
             maxGdpPercap = max(gdpPercap))
 
 # agrupando esperanza de vida promedio por año
@@ -112,21 +129,21 @@ plot(
 # mutate con dplyr #
 ####################
 
-gapminder %>%
-  mutate(pop= pop/1000000)
+gapmindermutado <- gapminder %>%
+  mutate(pop = pop/1000000)
 
 gapminder %>%
   mutate(gdp = gdpPercap*pop)
 
-#####################
+####################
 # select con dplyr #
-#####################
+####################
 
 gapminder %>%
   filter(year == 2007) %>%
   mutate(lifeExpMonths = 12 * lifeExp) %>%
   arrange(desc(lifeExpMonths)) %>%
-  select(continent)
+  select(continent, year)
 
 ###################
 # count con dplyr #
@@ -136,25 +153,52 @@ gapminder %>%
 # ordenamos por esta cuenta
 gapminder %>%
   filter(year == 2002) %>%
-  count(continent, sort = TRUE)
+  group_by(continent) %>% 
+  summarise(counting = n())
+
+
+gapminder %>%
+  filter(year == 2002) %>%
+  count(continent)
+# count es como hacer un value_counts() en pandas
 
 ####################
 # plot con ggplot2 #
 ####################
+
+by_year <- gapminder %>%
+  group_by(year) %>% 
+  summarise(medianLifeExp = median(lifeExp),
+            maxGdpPercap = max(gdpPercap))
 
 # crear un scatter plot mostrando el cambio de medianLifeExp 
 # a lo largo de los años
 ggplot(by_year, aes(x = year, y = medianLifeExp)) +
   geom_point() 
 
+
+gapminder %>%
+  group_by(year) %>% 
+  summarise(medianLifeExp = median(lifeExp),
+            maxGdpPercap = max(gdpPercap)) %>% 
+  ggplot(aes(x = year, y = medianLifeExp)) +
+  geom_point()
+
+# 
+
 gapminder %>% 
   filter(year == 2002) %>% 
   ggplot(aes(x = pop, y = lifeExp, colour = continent)) +
   geom_point() +
+  # sale_x_log10 es algo específico para estos datos
+  # cambia la escala de x
   scale_x_log10() +
   facet_wrap(~ continent) # separa subplots por continente
+  # ~ esto es una virgulilla
 
-# %in% se usa para identificar si un elemento pertenece a un vector o dataframe
+# %in% se usa para identificar si un elemento 
+#pertenece a un vector o dataframe
+
 gapminder %>%
   # Get the start letter of each country
   mutate(startsWith = substr(country, start = 1, stop = 1)) %>%
@@ -170,24 +214,24 @@ gapminder %>%
   filter(year == 2002) %>% 
   ggplot(aes(x = continent, y = gdpPercap)) +
   geom_boxplot() +
-  scale_y_log10() +
+  #scale_y_log10() +
   ggtitle("Comparing GDP per capita across continents")
 
 # Comparando el PIB pc en los continentes
 # Con funcion
-peryear <- function(year_choosen) {
+gdp_year <- function(parametro_year) {
   gapminder %>% 
-    filter(year == year_choosen) %>% 
+    filter(year == parametro_year) %>% 
     ggplot(aes(x = continent, y = gdpPercap)) +
     geom_boxplot() +
     scale_y_log10() +
-    ggtitle(paste("Comparing GDP per capita across continents in", year_choosen))
+    ggtitle(paste("Comparing GDP per capita across continents in", parametro_year))
 }
 
-peryear(2002)
+gdp_year(1952)
 
 ## Gráficos más complejos y CHULOS
-
+# install.package("gganimate")
 library(gganimate)
 library(gifski)
 
@@ -234,6 +278,7 @@ summary(gapminder)
 
 hist(gapminder$lifeExp)
 
+
 ggplot(data = gapminder,
        mapping = aes(x = gdpPercap)) +
   geom_histogram(binwidth = 100)
@@ -241,6 +286,7 @@ ggplot(data = gapminder,
 # Percentiles y Boxplots
 
 boxplot(gapminder$lifeExp)
+
 ggplot(data = gapminder,
        mapping = aes(x = pop, y = lifeExp)) +
   #geom_boxplot() +
@@ -248,7 +294,6 @@ ggplot(data = gapminder,
 
 # Correlaciones y dispersión
 # https://www.tylervigen.com/spurious-correlations
-
 
 ggplot(data = gapminder,
        mapping = aes(x = pop, y = lifeExp)) +
