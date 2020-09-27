@@ -1,5 +1,7 @@
-/week12/*
-
+/week12/day2/*
+/week12/day3/*
+/week12/day4/*
+/week12/day5/*
 
 
 /week5/day5/competition/healthcare/*
@@ -24,8 +26,6 @@ data_science_jun_2020.Rproj
 *.pub
 .DS_Store
 passwords
-
-
 
 
 /.idea/
