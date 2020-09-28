@@ -2,7 +2,9 @@
 2. Datos - ¿Existen suficientes datos? 
     2.1 Conseguir más datos
 3. EDA: (creación de semilla)
-    3.0 Data Wrangling
+    * Si se precisa crear baseline, pasar a \\7. haciendo los pasos básicos de EDA para que sea posible.
+
+    3.0. Data Wrangling
     3.1. Visualizar los datos / comprender los datos
     Data Mining
     3.2. Limpiar datos: NaN, duplicados, eliminar columnas no relevantes,...
