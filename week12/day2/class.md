@@ -8,7 +8,9 @@
 2. Regression with Tensorflow:
     - https://www.tensorflow.org/tutorials/keras/regression?hl=es-419
 3. Convolution with Tensorflow: 
+
     3.1. https://www.tensorflow.org/tutorials/keras/classification?hl=es-419
+    
     3.2. With convolution:
         - fashion_classification.ipynb
 
@@ -17,7 +19,7 @@
 **Work-out:**
 
 4. convolution_mnist.ipynb
-4. convolution_cifar10.ipynb  -- con 1D
+5. convolution_cifar10.ipynb  -- con 1D
 6. Red neuronal 2: https://www.youtube.com/watch?v=uwbHOpp9xkc&ab_channel=DotCSV
 
 ---------
