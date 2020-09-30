@@ -1,0 +1,20 @@
+Api instructions. 
+
+Localhost:6060 / 192.168.1.102:6060
+
+This api can receive multiple arguments:
+
+token_id: When providing the NIE for this argument (Y7291372H) the api will return a dataframe in Json format of The Happiness score and 
+	  all corresponding columns for years: 2015 to 2019. 
+	  example-> http://192.168.1.102:6060/get/Data?token_id=Y7291372H
+
+year: When providing one specific year (2015, 2016, 2017, 2018 or 2019) for this argument the api will return the dataframe 
+      of the Happiness score and all its corresponding columns of the year that is chosen in format Json. 
+      example -> http://192.168.1.102:6060/get/Data?year=2015
+
+If an invalid argument was provided the api will return an error message.
+example -> 
+
+This is a message of error
+
+ImmutableMultiDict([('yeaar', '2015')])
