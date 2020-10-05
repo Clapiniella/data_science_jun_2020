@@ -12,12 +12,13 @@ data_science_jun_2020.Rproj
 /others/projects/individual/august/students/*
 /others/resources/other_repos/*
 
-
+*sentiment_by_phrase_elsa*
 *Precurse_Exam*
 /week7/day5/*
 /week6/day4/theory/settings.json
 
-
+*.h5
+*model*
 .vscode/*
 
 *.pub
