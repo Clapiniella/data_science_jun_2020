@@ -15,8 +15,25 @@
     3.7. Reducción de la dimensionalidad, PCA, T-sne (...)
     \\3.8. Eliminar columnas conileanes*
     3.9. Repetir proceso hasta diferentes versiones.
+    3.10. Preprocesamiento de datos (data augmentation)
+    https://machinelearningmastery.com/how-to-configure-image-data-augmentation-when-training-deep-learning-neural-networks/
 4. Creación del conjunto de entrenamiento y de test
-5. Elegir el modelo y parámetros (GridSearch opcional)
+5. Elegir el modelo y parámetros 
+    5.1. No deep learning (GridSearch opcional)
+    5.2. Con deep learning:
+        5.2.1. Arquitectura: podemos elegir diferentes capas para nuestra red neuronal (convolución, dense, rnn, flaten, embedding(NLP),maxpool,(...)).
+        5.2.2. En cada capa tenemos: neuronas, función de activación (relu, sigmoid, linear, tanh, softmax [para la última capa ya que saca valores entre 0 y 1|| usado en clasificación])
+        5.2.3. Función de optimización: altera la forma en la que la red aprende(adam, adadelta, rmsprop,(...)) con una serie de parámetros (learning_rate). Podemos agregar regularización añadiendo capas de dropout y L1, L2, (...)
+        https://towardsdatascience.com/machine-learning-model-regularization-in-practice-an-example-with-keras-and-tensorflow-2-0-52a96746123e
+        \\Dense(64, kernel_regularizer=l2(0.01))
+        5.2.4. Callbacks: Podemos agregar diferentes formas de monitorizar el entrenamiento. EarlyStop trata de parar el entrenamiento si detecta sobreentrenamiento. Podemos cambiar la forma en la que se va mostrando la información en cada epoch/batch (FuntionDot -- nombre de clase). 
+        5.2.5. Métricas: debemos especificar a partir de qué parámetro nuestra red va a tratar de mejorar. Normalmente se debe especificar el loss de entrenamiento. 
+            5.2.5.1. En los problemas de regresión, normalmente se utiliza rmse, mse, mae. En clasificación se utiliza alguna forma de accuracy (accuracy, roc-auc, f1-score, precision, recall, r2)
+        \\logit -> [200, 400]
+        \\logic_real -> [100, 400]
+        \\softmax -> [0.25, 0.75]
+        \\softmax_real -> [0, 1]
+
 6. Entrenar el modelo (X_train): 
     6.1 Entrenar con todos los datos sin cross validation
     6.2 Cross validation normal (warm_start=True)
