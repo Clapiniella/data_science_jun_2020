@@ -18,7 +18,7 @@ data_science_jun_2020.Rproj
 /week6/day4/theory/settings.json
 
 *.h5
-*model*
+model*
 .vscode/*
 
 *.pub
