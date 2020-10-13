@@ -1,0 +1,8 @@
+Teoría
+
+https://help.tableau.com/current/pro/desktop/en-us/datafields_typesandroles.htm
+https://www.analyticsvidhya.com/blog/2017/07/data-visualisation-made-easy/
+
+Ejemplo
+
+https://dub01.online.tableau.com/#/site/clarapinielladatascience/views/Superstore_16025362859640/Superstore?:iid=1
