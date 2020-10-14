@@ -11,15 +11,17 @@
 3. Generate putty key - Public & private  -- **Or from AWS directly**
     - https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
-### Check city of the server (Paris)!
+### Check city of the server (Ohio)!
 On EC2:
 4. Open Security Group - Inbound & Outbound all traffic. 
-5. Key Pairs - Import keys 
+5. Key Pairs - Import keys - Directly in AWS - 
 6. Launch instance - Free tier -  Linux 2 AMI (HVM) SSD
     - With the key-pair
     - With the Security Group
     - All basics
     https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
+
+7. Filezilla: ssh - To send files - https://filezilla-project.org/download.php
 
 7. Debugging
 

@@ -9,7 +9,7 @@ class MySQL:
         self.BD_NAME = BD_NAME
         self.PORT = PORT
         self.SQL_ALCHEMY = 'mysql+pymysql://root:test@' + self.IP_DNS + ':' + str(self.PORT) + '/' + self.BD_NAME
-        
+        # 'mysql+pymysql://root:test@98.76.54.32:20001/datasciencetb_db'
     def connect(self):
         # Open database connection
         self.db = pymysql.connect(host=self.IP_DNS,
@@ -20,6 +20,7 @@ class MySQL:
         # prepare a cursor object using cursor() method
         self.cursor = self.db.cursor()
         print("Connected to MySQL server [" + self.BD_NAME + "]")
+        return self.db
 
     def close(self):
         # disconnect from server
@@ -27,6 +28,7 @@ class MySQL:
         print("Close connection with MySQL server [" + self.BD_NAME + "]")
     
     def execute_interactive_sql(self, sql, delete=False):
+        """ NO SELECT """
         result = 0
         try:
             # Execute the SQL command
@@ -42,6 +44,7 @@ class MySQL:
         return result
         
     def execute_get_sql(self, sql):
+        """SELECT"""
         results = None
         print("Executing:\n", sql)
         try:
