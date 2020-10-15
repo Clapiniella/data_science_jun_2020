@@ -39,7 +39,6 @@ On EC2:
     - sh ___EXECUTOR___yum.sh
     - Answer "y" to all questions.
 
-
 Connect with Putty:
 - https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/putty.html
 
@@ -52,7 +51,6 @@ Connect with Putty:
 * Windows, Linux and Mac are tools to do a specific work* 
 
 **FUNNY FACT: The code you have in delopment may not work in production!!!**
-
 
 ---------
 
